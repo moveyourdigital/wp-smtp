@@ -10,7 +10,7 @@ namespace SMTP;
 add_action(
 	'admin_enqueue_scripts',
 	function ( $hook ) {
-		if ( 'options-writing.php' === $hook ) {
+		if ( 'options-general.php' === $hook ) {
 			wp_register_style( 'admin-smtp', plugin_uri( '/css/admin-smtp.css' ), false, plugin_version() );
 			wp_enqueue_script( 'admin-smtp', plugin_uri( '/js/admin-smtp.js' ), array( 'jquery' ), plugin_version(), true );
 			wp_enqueue_style( 'admin-smtp' );
@@ -27,7 +27,7 @@ add_action(
 			function () {
 				echo '<p>' . esc_html( __( 'By default, WordPress sends emails without authentication, which can increase the chance of them being marked as spam. To improve deliverability, it is recommended to use an SMTP server.', 'smtp' ) ) . '</p>';
 			},
-			'writing',
+			'general',
 			array(
 				'section_class'  => 'smtp_settings',
 				'before_section' => '<div style="margin-top: 40px;"></div>',
@@ -47,7 +47,7 @@ add_action(
 		<span><?php echo esc_html( $args['label'] ); ?></span></legend>
 		<p>
 			<label>
-				<input name="smtp_enabled" type="radio" value="0" class="tog" <?php echo esc_attr( checked( 0, get_option( 'smtp_enabled' ), false ) ); ?> />
+				<input name="smtp_enabled" type="radio" value="0" class="tog" <?php echo esc_attr( checked( 0, get_option( 'smtp_enabled', '0' ), false ) ); ?> />
 					<?php esc_attr_e( 'Default unauthenticated method', 'smtp' ); ?>
 			</label>
 		</p>
@@ -197,7 +197,7 @@ add_action(
 
 		foreach ( $settings as $field => $args ) {
 			register_setting(
-				'writing',
+				'general',
 				$field,
 				array_intersect_key(
 					$args,
@@ -217,7 +217,7 @@ add_action(
 					$field,
 					$args['label'],
 					$args['html_callback'],
-					'writing',
+					'general',
 					'smtp_settings_section',
 					array_diff_key( $args, array_flip( array( 'html_callback' ) ) ),
 				);

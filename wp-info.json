@@ -11,10 +11,10 @@
   "last_updated": "2024-04-09 16:45:00",
   "sections": {
     "description": "Send emails through an SMTP server.",
-    "installation": "Click the <i>activate</i> button. Configure SMTP under Writing options."
+    "installation": "Click the <i>activate</i> button. Configure SMTP under General Settings."
   },
   "banners": {
-    "low": "https://raw.githubusercontent.com/moveyourdigital/wp-smtp/main/assets/banner-772x250.jpg",
-    "high": "https://raw.githubusercontent.com/moveyourdigital/wp-smtp/main/assets/banner-1544x500.jpeg"
+    "low": "https://github.com/moveyourdigital/wp-smtp/raw/main/assets/banner-772x250.jpg",
+    "high": "https://github.com/moveyourdigital/wp-smtp/raw/main/assets/banner-1544x500.jpg"
   }
 }

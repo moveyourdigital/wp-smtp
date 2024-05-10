@@ -95,10 +95,6 @@ add_filter(
 			return $update;
 		}
 
-		if ( ! empty( $update ) ) {
-			return $update;
-		}
-
 		$remote_data = apply_filters( 'plugin_update_remote_data_' . plugin_file(), $update );
 
 		if ( ! $remote_data ) {
