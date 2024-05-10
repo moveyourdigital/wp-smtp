@@ -1,0 +1,129 @@
+# Copyright (C) 2024 Move Your Digital, Inc.
+# This file is distributed under the GPLv2.
+msgid ""
+msgstr ""
+"Project-Id-Version: SMTP 0.3.3\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-smtp\n"
+"POT-Creation-Date: 2024-05-10T13:11:33+00:00\n"
+"PO-Revision-Date: 2024-05-10 14:19+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.3.2\n"
+"X-Domain: smtp\n"
+
+#. Plugin Name of the plugin
+msgid "SMTP"
+msgstr "SMTP"
+
+#. Plugin URI of the plugin
+msgid "https://github.com/moveyourdigital/wp-smtp"
+msgstr "https://github.com/moveyourdigital/wp-smtp"
+
+#. Description of the plugin
+msgid "Log all emails sent from WordPress"
+msgstr "Regista todos os e-mails enviados a partir do WordPress"
+
+#. Author of the plugin
+msgid "Move Your Digital, Inc."
+msgstr "Move Your Digital, Inc."
+
+#. Author URI of the plugin
+msgid "https://moveyourdigital.com"
+msgstr "https://moveyourdigital.com"
+
+#: inc/admin.php:24
+msgid "Email settings"
+msgstr "Configurações de e-mail"
+
+#: inc/admin.php:26
+msgid ""
+"By default, WordPress sends emails without authentication, which can "
+"increase the chance of them being marked as spam. To improve deliverability, "
+"it is recommended to use an SMTP server."
+msgstr ""
+"Por padrão, o WordPress envia emails sem autenticação, o que pode aumentar a "
+"chance de eles serem marcados como spam. Para melhorar a entregabilidade, é "
+"recomendado usar um servidor SMTP."
+
+#: inc/admin.php:38
+msgid "Send emails using"
+msgstr "Enviar emails através de"
+
+#: inc/admin.php:39
+msgid "SMTP delivery is enabled."
+msgstr "Envio através de SMTP está ativo."
+
+#: inc/admin.php:49
+msgid "Default unauthenticated method"
+msgstr "Método não autenticado por omissão"
+
+#: inc/admin.php:55
+msgid "External SMTP server (recommended)"
+msgstr "Servidor externo SMTP (recomendado)"
+
+#: inc/admin.php:65
+msgid "Server address"
+msgstr "Endereço do servidor"
+
+#: inc/admin.php:70
+msgid "Port"
+msgstr "Porta"
+
+#: inc/admin.php:84
+msgid "Authentication"
+msgstr "Autenticação"
+
+#: inc/admin.php:89
+msgid "Authenticate using username and password"
+msgstr "Autenticar com utilizador e password"
+
+#: inc/admin.php:96
+msgid "Username"
+msgstr "Utilizador"
+
+#: inc/admin.php:108
+msgid "Password"
+msgstr "Palavra-passe"
+
+#: inc/admin.php:127
+msgid "Encryption"
+msgstr "Encriptação"
+
+#: inc/admin.php:139
+msgid "No encryption layer (insecure)"
+msgstr "Nenhuma camada de encriptação (inseguro)"
+
+#: inc/admin.php:145
+msgid "Use STARTTLS"
+msgstr "Usar STARTTLS"
+
+#: inc/admin.php:151
+msgid "Implicit SSL/TLS (recommended)"
+msgstr "Usar SSL/TLS implícito (recomendado)"
+
+#: inc/admin.php:155
+msgid ""
+"The recommended method for securing modern SMTP servers is SSL/TLS, "
+"typically using port 465, while explicit STARTTLS commonly uses port 587."
+msgstr ""
+"A forma recomendada para manter a segurança de servidores SMTP modernos é "
+"através de SSL/TLS, geralmente usando a porta 465, enquanto que no STARTTLS "
+"explícito é utilizado na porta 587."
+
+#: inc/admin.php:164
+msgid "From email address"
+msgstr "Endereço de e-mail para"
+
+#. translators: default WordPress email adddress
+#: inc/admin.php:187
+msgid ""
+"If left empty, uses the default WordPress email %s which, depending on the "
+"server configurations, can decrease the chances of email deliverability."
+msgstr ""
+"Se deixado em branco, o WordPress utilizará o email padrão %s, que, "
+"dependendo das configurações do servidor, pode diminuir as chances de "
+"entrega de emails."
