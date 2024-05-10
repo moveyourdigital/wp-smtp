@@ -9,7 +9,7 @@
  * Author URI:      https://moveyourdigital.com
  * License:         GPLv2
  * License URI:     https://www.gnu.org/licenses/gpl-2.0.html
- * Update URI:      https://gist.githubusercontent.com/lightningspirit/d1861abd1c3a971d283adc732babf7fb/raw/a09831a40834c10db4386086904fe68c9ecfcd4a/wp-info.json
+ * Update URI:      https://raw.githubusercontent.com/moveyourdigital/wp-smtp/main/wp-info.json
  * Text Domain:     smtp
  * Domain Path:     /languages
  *
