@@ -14,7 +14,7 @@
     "installation": "Click the <i>activate</i> button. Configure SMTP under Writing options."
   },
   "banners": {
-    "low": "https://github.com/moveyourdigital/wp-smtp/raw/main/assets/banner-772x250.jpg",
-    "high": "https://github.com/moveyourdigital/wp-smtp/raw/main/assets/banner-1544x500.jpg"
+    "low": "https://raw.githubusercontent.com/moveyourdigital/wp-smtp/main/assets/banner-772x250.jpg",
+    "high": "https://raw.githubusercontent.com/moveyourdigital/wp-smtp/main/assets/banner-1544x500.jpeg"
   }
 }
