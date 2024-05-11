@@ -1,6 +1,6 @@
 {
   "name": "SMTP",
-  "slug": "smtp",
+  "slug": "wp-smtp/smtp.php",
   "author": "<a href='https://github.com/moveyourdigital'>Move Your Digital</a>",
   "author_profile": "https://github.com/moveyourdigital",
   "version": "0.3.3",
