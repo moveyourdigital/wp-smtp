@@ -2,9 +2,9 @@
 /**
  * Plugin Name:     SMTP
  * Plugin URI:      https://github.com/moveyourdigital/wp-smtp
- * Description:     Log all emails sent from WordPress
- * Version:         0.3.3
- * Requires:        PHP: 7.4
+ * Description:     Send emails through an SMTP server
+ * Version:         0.3.4
+ * Requires PHP:    7.4
  * Author:          Move Your Digital, Inc.
  * Author URI:      https://moveyourdigital.com
  * License:         GPLv2
@@ -71,6 +71,16 @@ function plugin_file() {
 }
 
 /**
+ * Gets the plugin basedir
+ *
+ * @since 0.3.3
+ * @return string
+ */
+function plugin_slug() {
+	return dirname( plugin_file() );
+}
+
+/**
  * Gets the plugin version.
  *
  * @since 0.3.3
@@ -113,6 +123,19 @@ function plugin_version() {
 
 	if ( isset( $data['Version'] ) ) {
 		return $data['Version'];
+	}
+}
+
+/**
+ * Get plugin update URL
+ *
+ * @return string|null
+ */
+function plugin_update_uri() {
+	$data = plugin_data();
+
+	if ( isset( $data['UpdateURI'] ) ) {
+		return $data['UpdateURI'];
 	}
 }
 

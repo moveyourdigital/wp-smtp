@@ -18,7 +18,7 @@ add_filter(
 	'plugin_update_remote_data_' . plugin_file(),
 	function ( $default_result = '' ) {
 		$remote_data = wp_remote_get(
-			plugin_data()['UpdateURI'],
+			plugin_update_uri(),
 			array(
 				'timeout' => 10,
 				'headers' => array(
@@ -33,7 +33,12 @@ add_filter(
 			return $default_result;
 		}
 
-		return json_decode( wp_remote_retrieve_body( $remote_data ) );
+		$remote_data = json_decode( wp_remote_retrieve_body( $remote_data ) );
+
+		$remote_data->sections = (array) $remote_data->sections;
+		$remote_data->banners  = (array) $remote_data->banners;
+
+		return $remote_data;
 	}
 );
 
@@ -58,26 +63,16 @@ add_filter(
 			return $result;
 		}
 
-		if ( plugin_file() !== $args->slug ) {
+		if ( plugin_slug() !== $args->slug ) {
 			return $result;
 		}
 
-		$result                = apply_filters( 'plugin_update_remote_data_' . plugin_file(), $result );
-		$result->slug          = plugin_file();
-		$result->trunk         = $result->download_url;
-		$result->download_link = $result->download_url;
-		$result->sections      = array(
-			'description'  => $result->sections->description,
-			'installation' => $result->sections->installation,
-		);
-		$result->banners       = array(
-			'low'  => $result->banners->low,
-			'high' => $result->banners->high,
-		);
+		$result       = apply_filters( 'plugin_update_remote_data_' . plugin_file(), $result );
+		$result->slug = plugin_slug();
 
 		return $result;
 	},
-	20,
+	10,
 	3
 );
 
@@ -89,7 +84,7 @@ add_filter(
  * @since 1.5.0
  */
 add_filter(
-	'update_plugins_' . wp_parse_url( sanitize_url( plugin_data()['UpdateURI'] ), PHP_URL_HOST ),
+	'update_plugins_' . wp_parse_url( sanitize_url( plugin_update_uri() ), PHP_URL_HOST ),
 	function ( $update, $plugin_data, $plugin_file ) {
 		if ( plugin_file() !== $plugin_file ) {
 			return $update;
@@ -110,14 +105,9 @@ add_filter(
 		}
 
 		return array(
-			'slug'         => plugin_file(),
-			'version'      => $remote_data->version,
-			'url'          => $plugin_data['PluginURI'],
-			'package'      => $remote_data->download_url,
-			'tested'       => $remote_data->tested,
-			'requires_php' => $remote_data->requires_php,
-			'autoupdate'   => true,
-			'banners'      => (array) $remote_data->banners,
+			'slug'    => plugin_slug(),
+			'version' => $remote_data->version,
+			'url'     => $plugin_data['PluginURI'],
 		);
 	},
 	10,
