@@ -35,6 +35,7 @@ add_filter(
 
 		$remote_data = json_decode( wp_remote_retrieve_body( $remote_data ) );
 
+		$remote_data->package  = $remote_data->download_link;
 		$remote_data->sections = (array) $remote_data->sections;
 		$remote_data->banners  = (array) $remote_data->banners;
 
@@ -104,11 +105,10 @@ add_filter(
 			return $update;
 		}
 
-		return array(
-			'slug'    => plugin_slug(),
-			'version' => $remote_data->version,
-			'url'     => $plugin_data['PluginURI'],
-		);
+		$remote_data->slug = plugin_slug();
+		$remote_data->url  = $plugin_data['PluginURI'];
+
+		return (array) $remote_data;
 	},
 	10,
 	4
@@ -132,18 +132,18 @@ add_filter(
  *     @type string $type         Type of update process. Accepts 'plugin', 'theme', 'translation', or 'core'.
  *     @type bool   $bulk         Whether the update process is a bulk update. Default true.
  *     @type array  $plugins      Array of the basename paths of the plugins' main files .
-		* @type array  $themes       The theme slugs .
-		* @type array  $translations {
-		* Array of translations update data .
-		*
-		* @type string $language The locale the translation is for .
-		* @type string $type     Type of translation . Accepts 'plugin', 'theme', or 'core' .
-		* @type string $slug     Text domain the translation is for . The slug of a theme / plugin or
-		* 'default' for core translations .
-		* @type string $version  The version of a theme, plugin, or core .
-* }
-* }
-*/
+ *     @type array  $themes       The theme slugs .
+ *     @type array  $translations {
+ *          Array of translations update data .
+ *
+ *          @type string $language The locale the translation is for .
+ *          @type string $type     Type of translation . Accepts 'plugin', 'theme', or 'core' .
+ *          @type string $slug     Text domain the translation is for . The slug of a theme / plugin or
+ *                                 'default' for core translations .
+ *          @type string $version  The version of a theme, plugin, or core .
+ *     }
+ * }
+ */
 add_action(
 	'upgrader_process_complete',
 	function ( $upgrader_object, $options ) {
