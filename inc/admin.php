@@ -137,7 +137,7 @@ add_action(
 		</legend>
 		<p>
 			<label>
-				<input name="<?php echo esc_attr( 'smtp_secure' ); ?>" type="radio" value="" class="tog smtp-input" <?php echo esc_attr( checked( 1, get_option( 'smtp_secure' ) == '', false ) ); ?> />
+				<input name="<?php echo esc_attr( 'smtp_secure' ); ?>" type="radio" value="" class="tog smtp-input" <?php echo esc_attr( checked( 1, get_option( 'smtp_secure' ) === '', false ) ); ?> />
 					<?php esc_attr_e( 'No encryption layer (insecure)', 'smtp' ); ?>
 			</label>
 		</p>

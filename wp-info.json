@@ -1,13 +1,13 @@
 {
   "name": "SMTP",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "author": "<a href='https://github.com/moveyourdigital'>Move Your Digital</a>",
   "author_profile": "https://github.com/moveyourdigital",
   "homepage": "https://github.com/moveyourdigital/wp-smtp",
   "download_link": "https://github.com/moveyourdigital/wp-smtp/archive/refs/heads/main.zip",
   "support_url": "https://github.com/moveyourdigital/wp-smtp/issues",
   "requires": "5.8",
-  "tested": "6.5.3",
+  "tested": "6.7.1",
   "requires_php": "7.4",
   "last_updated": "2024-04-09 16:45:00",
   "sections": {
@@ -16,7 +16,7 @@
     "changelog": "<h4>0.3.4</h4><ol><li>Admin UI for SMTP in general settings.</li></ol>"
   },
   "banners": {
-    "low": "https://github.com/moveyourdigital/wp-smtp/raw/main/assets/banner-772x250.jpg",
-    "high": "https://github.com/moveyourdigital/wp-smtp/raw/main/assets/banner-1544x500.jpg"
+    "low": "https://github.com/moveyourdigital/wp-smtp/raw/main/.wordpress-org/banner-772x250.jpg",
+    "high": "https://github.com/moveyourdigital/wp-smtp/raw/main/.wordpress-org/banner-1544x500.jpg"
   }
 }

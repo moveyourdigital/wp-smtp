@@ -1,8 +1,10 @@
 jQuery(document).ready(function ($) {
 	const __ = wp.i18n.__;
 
-	function toggleDisable(disable) {
-		$('.smtp-input').attr('disabled', disable);
+	const smtp_auth_selector = 'input[name=smtp_username], input[name=smtp_password], input[name=smtp_password] + button';
+
+	function toggleDisable(disable, selector = '.smtp-input') {
+		$(selector).attr('disabled', disable);
 	}
 
 	function resetToggle(show) {
@@ -26,6 +28,14 @@ jQuery(document).ready(function ($) {
 		})
 		.on('click', function (e) {
 			toggleDisable(e.target.value === '0');
+		});
+
+	$('input[name=smtp_auth]')
+		.each(function (_, e) {
+			toggleDisable(e.checked === false, smtp_auth_selector);
+		})
+		.on('click', function (e) {
+			toggleDisable(e.target.checked === false, smtp_auth_selector);
 		});
 
 	$('.smtpserver-pass-wrap .wp-hide-pw')

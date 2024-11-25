@@ -22,7 +22,7 @@ function get_field( $field ) {
 
 	$field = strtoupper( $field );
 
-	if ( defined( strtoupper( $field ) ) ) {
+	if ( defined( $field ) ) {
 		return constant( $field );
 	}
 }

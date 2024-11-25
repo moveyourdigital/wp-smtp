@@ -3,7 +3,7 @@
  * Plugin Name:     SMTP
  * Plugin URI:      https://github.com/moveyourdigital/wp-smtp
  * Description:     Send emails through an SMTP server
- * Version:         0.3.5
+ * Version:         0.3.6
  * Requires PHP:    7.4
  * Author:          Move Your Digital, Inc.
  * Author URI:      https://moveyourdigital.com
@@ -145,7 +145,7 @@ function plugin_update_uri() {
  * @since 0.1.0
  */
 add_action(
-	'plugins_loaded',
+	'init',
 	function () {
 		load_plugin_textdomain(
 			'smtp',
