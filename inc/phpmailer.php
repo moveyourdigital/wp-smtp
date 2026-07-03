@@ -82,16 +82,16 @@ add_action(
 			$phpmailer->Debugoutput = function ( $str, $level ) use ( $debug_display, $debug_log, $phpmailer ) {
 				// phpcs:ignore -- reading configured credentials to redact them from debug output
 				$sensitive = array_filter( [ $phpmailer->Username, $phpmailer->Password ] );
-				$redacted = redact_smtp_debug( $str, $sensitive );
-				
+				$redacted  = redact_smtp_debug( $str, $sensitive );
+
 				if ( $debug_log ) {
 					error_log( 'PHPMailer SMTP: ' . $redacted );
 				}
 				
-				if ( $debug_display ) {
+				if ( $debug_display && ! ( ( function_exists( 'wp_doing_ajax' ) && wp_doing_ajax() ) || ( defined( 'REST_REQUEST' ) && REST_REQUEST ) ) ) {
 					echo esc_html( 'PHPMailer SMTP: ' . $redacted ) . "\n";
 				}
-			};	
+			};
 		}
 
 		$smtp_host = get_field( 'smtp_host' );
@@ -162,6 +162,9 @@ add_filter(
 	'wp_mail_from',
 	function ( $from_email ) {
 		$smtp_email_from = get_field( 'smtp_from' );
+		if ( ! $smtp_email_from ) {
+			$smtp_email_from = get_field( 'smtp_from_email' );
+		}
 
 		if ( $smtp_email_from ) {
 			return $smtp_email_from;
