@@ -51,6 +51,8 @@ add_action(
 
 		$smtp_host = get_field( 'smtp_host' );
 
+		$phpmailer->SMTPDebug = 2;
+
 		if ( $smtp_host ) {
 			// phpcs:ignore
 			$phpmailer->Host = $smtp_host;
@@ -116,7 +118,7 @@ add_action(
 add_filter(
 	'wp_mail_from',
 	function ( $from_email ) {
-		$smtp_email_from = get_field( 'smtp_from_email' );
+		$smtp_email_from = get_field( 'smtp_from' );
 
 		if ( $smtp_email_from ) {
 			return $smtp_email_from;
